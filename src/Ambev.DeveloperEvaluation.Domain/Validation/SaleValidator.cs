@@ -17,7 +17,9 @@ public class SaleValidator : AbstractValidator<Sale>
 
         RuleFor(sale => sale.CustomerEmail)
             .NotEmpty()
-            .WithMessage("Customer email is required.");
+            .WithMessage("Customer email is required.")
+            .EmailAddress()
+            .WithMessage("Customer email must be a valid email address.");
 
         RuleFor(sale => sale.CustomerDocument)
             .MaximumLength(20)
